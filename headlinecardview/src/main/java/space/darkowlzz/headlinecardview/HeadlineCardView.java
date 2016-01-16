@@ -2,6 +2,7 @@ package space.darkowlzz.headlinecardview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v7.widget.CardView;
@@ -33,6 +34,7 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     private Boolean cardMenuEnabled;
     private int menuItemsResource;
     private float cardElevation;
+    private int headlineColor;
 
     // Headline text padding
     private int headlinePadding = DEFAULT_HEADLINE_PADDING;
@@ -114,9 +116,13 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 backgroundColor = a.getColor(R.styleable.HeadlineCardView_background_color, getResources()
                         .getColor(R.color.defaultBackground, getContext().getTheme()));
+                headlineColor = a.getColor(R.styleable.HeadlineCardView_headline_textColor, getResources()
+                        .getColor(R.color.defaultHeadlineText, getContext().getTheme()));
             } else {
                 backgroundColor = a.getColor(R.styleable.HeadlineCardView_background_color, getResources()
                         .getColor(R.color.defaultBackground));
+                headlineColor = a.getColor(R.styleable.HeadlineCardView_headline_textColor, getResources()
+                        .getColor(R.color.defaultHeadlineText));
             }
         } finally {
             a.recycle();
@@ -130,18 +136,19 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
 
         // Set headline text content
         headlineTextView.setText(headlineText);
-
-        // Set headline padding
-        headlineTextView.setPadding(headlinePaddingLeft, headlinePaddingTop, headlinePaddingRight, headlinePaddingBottom);
-        // Set menu icon padding
-        cardMenuIcon.setPadding(menuIconPaddingLeft, menuIconPaddingTop, menuIconPaddingRight, menuIconPaddingBottom);
-
         // Set textAppearance of headline
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             headlineTextView.setTextAppearance(headlineStyle);
         } else {
             headlineTextView.setTextAppearance(context, headlineStyle);
         }
+        // Set headline text color
+        headlineTextView.setTextColor(headlineColor);
+
+        // Set headline padding
+        headlineTextView.setPadding(headlinePaddingLeft, headlinePaddingTop, headlinePaddingRight, headlinePaddingBottom);
+        // Set menu icon padding
+        cardMenuIcon.setPadding(menuIconPaddingLeft, menuIconPaddingTop, menuIconPaddingRight, menuIconPaddingBottom);
 
         // Set headline cardview background
         setCardBackgroundColor(backgroundColor);
