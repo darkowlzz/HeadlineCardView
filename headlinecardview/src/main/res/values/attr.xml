@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HeadlineCardView">
+        <attr name="headline_text" format="string"/>
+        <attr name="headline_style" format="reference"/>
+        <attr name="headline_textColor" format="color"/>
+
+        <attr name="headline_padding" format="dimension"/>
+        <attr name="headline_paddingRight" format="dimension"/>
+        <attr name="headline_paddingLeft" format="dimension"/>
+        <attr name="headline_paddingTop" format="dimension"/>
+        <attr name="headline_paddingBottom" format="dimension"/>
+
+        <attr name="headline_align_parentRight" format="boolean"/>
+        <attr name="headline_align_parentLeft" format="boolean"/>
+        <attr name="headline_align_centerInParent" format="boolean"/>
+
+        <attr name="menuicon_padding" format="dimension"/>
+        <attr name="menuicon_paddingRight" format="dimension"/>
+        <attr name="menuicon_paddingLeft" format="dimension"/>
+        <attr name="menuicon_paddingTop" format="dimension"/>
+        <attr name="menuicon_paddingBottom" format="dimension"/>
+
+        <attr name="background_color" format="color"/>
+        <attr name="card_elevation" format="dimension"/>
+        <attr name="menuicon_align_parentRight" format="boolean"/>
+        <attr name="menuicon_align_parentLeft" format="boolean"/>
+        <attr name="menuicon_align_centerVertical" format="boolean"/>
+
+        <attr name="menu_enabled" format="boolean"/>
+        <attr name="menu_options" format="reference"/>
+    </declare-styleable>
+
+</resources>

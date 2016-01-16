@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wrapperLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultHeadlineText" />
+
+    <ImageView
+        android:id="@+id/optionsMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_navigation_more_vert"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/menuIcon" />
+
+</RelativeLayout>
