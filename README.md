@@ -74,11 +74,11 @@ Learn more about the available attribuetes from [here](https://github.com/darkow
 
 ## Gradle
 
-Not yet available in bintray.
+Add to build.gradle depencencies
 
 ```groovy
 dependencies {
-    compile 'space.darkowlzz:headlineCardView:UNAVAILABLE'
+    compile 'space.darkowlzz:headlinecardview:0.1.0'
 }
 ```
 
