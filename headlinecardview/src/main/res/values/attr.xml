@@ -5,6 +5,7 @@
         <attr name="headline_text" format="string"/>
         <attr name="headline_style" format="reference"/>
         <attr name="headline_textColor" format="color"/>
+        <attr name="headline_textSize" format="dimension"/>
 
         <attr name="headline_padding" format="dimension"/>
         <attr name="headline_paddingRight" format="dimension"/>

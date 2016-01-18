@@ -89,6 +89,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         headlinecard:headline_text="Fooooo"
+        headlinecard:headline_textSize="20dp"
         headlinecard:headline_textColor="#3DFCED"
         headlinecard:headline_align_centerInParent="true"
         headlinecard:menu_enabled="true"

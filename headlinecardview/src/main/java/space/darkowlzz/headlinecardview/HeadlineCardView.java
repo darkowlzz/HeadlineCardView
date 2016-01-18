@@ -2,13 +2,9 @@ package space.darkowlzz.headlinecardview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,10 +21,12 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     private final int DEFAULT_HEADLINE_PADDING = 26;
     private final int DEFAULT_CARD_ELEVATION = 5;
     private final int DEFAULT_MENU_ICON_PADDING = 0;
+    private final int DEFAULT_HEADLINE_TEXT_SIZE = 0;
 
     private String headlineText = "";
     private TextView headlineTextView;
     private int headlineStyle;
+    private float headlineTextSize;
     private int backgroundColor; // background of the whole headline card
     private ImageView cardMenuIcon;
     private Boolean cardMenuEnabled;
@@ -85,6 +83,7 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         try {
             headlineText = a.getString(R.styleable.HeadlineCardView_headline_text);
             headlineStyle = a.getResourceId(R.styleable.HeadlineCardView_headline_style, android.R.style.TextAppearance_Medium);
+            headlineTextSize = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_textSize, DEFAULT_HEADLINE_TEXT_SIZE);
             cardMenuEnabled = a.getBoolean(R.styleable.HeadlineCardView_menu_enabled, false);
             menuItemsResource = a.getResourceId(R.styleable.HeadlineCardView_menu_options, R.menu.default_options);
             cardElevation = a.getDimensionPixelSize(R.styleable.HeadlineCardView_card_elevation, DEFAULT_CARD_ELEVATION);
@@ -144,6 +143,11 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         }
         // Set headline text color
         headlineTextView.setTextColor(headlineColor);
+
+        // set textSize only when it's other than the default value of DEFAULT_HEADLINE_TEXT_SIZE i.e. 0
+        if (headlineTextSize != DEFAULT_HEADLINE_TEXT_SIZE) {
+            headlineTextView.setTextSize(headlineTextSize);
+        }
 
         // Set headline padding
         headlineTextView.setPadding(headlinePaddingLeft, headlinePaddingTop, headlinePaddingRight, headlinePaddingBottom);
