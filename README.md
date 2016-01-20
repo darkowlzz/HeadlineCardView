@@ -1,5 +1,8 @@
 # HeadlineCardView
-Android CardView for just Headlines and optional menu
+
+[ ![Download](https://api.bintray.com/packages/darkowlzz/maven/HeadlineCardView/images/download.svg) ](https://bintray.com/darkowlzz/maven/HeadlineCardView/_latestVersion)
+
+Android CardView for just Headlines and optional menu.
 
 ![Demo](/images/demo-screenshot.png)
 
