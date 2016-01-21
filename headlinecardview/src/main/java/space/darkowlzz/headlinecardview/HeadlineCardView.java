@@ -18,9 +18,6 @@ import android.widget.TextView;
  */
 public class HeadlineCardView extends android.support.v7.widget.CardView {
 
-    private final int DEFAULT_HEADLINE_PADDING = 26;
-    private final int DEFAULT_CARD_ELEVATION = 5;
-    private final int DEFAULT_MENU_ICON_PADDING = 0;
     private final int DEFAULT_HEADLINE_TEXT_SIZE = 0;
 
     private String headlineText = "";
@@ -35,28 +32,28 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     private int headlineColor;
 
     // Headline text padding
-    private int headlinePadding = DEFAULT_HEADLINE_PADDING;
-    private int headlinePaddingRight = DEFAULT_HEADLINE_PADDING;
-    private int headlinePaddingLeft = DEFAULT_HEADLINE_PADDING;
-    private int headlinePaddingTop = DEFAULT_HEADLINE_PADDING;
-    private int headlinePaddingBottom = DEFAULT_HEADLINE_PADDING;
+    private int headlinePadding;
+    private int headlinePaddingRight;
+    private int headlinePaddingLeft;
+    private int headlinePaddingTop;
+    private int headlinePaddingBottom;
 
     // Menu icon padding
-    private int menuIconPadding = DEFAULT_MENU_ICON_PADDING;
-    private int menuIconPaddingRight = DEFAULT_MENU_ICON_PADDING;
-    private int menuIconPaddingLeft = DEFAULT_MENU_ICON_PADDING;
-    private int menuIconPaddingTop = DEFAULT_MENU_ICON_PADDING;
-    private int menuIconPaddingBottom = DEFAULT_MENU_ICON_PADDING;
+    private int menuIconPadding;
+    private int menuIconPaddingRight;
+    private int menuIconPaddingLeft;
+    private int menuIconPaddingTop;
+    private int menuIconPaddingBottom;
 
     // Headline alignment
-    private boolean headlineAlignParentRight = false;
-    private boolean headlineAlignParentLeft = false;
-    private boolean headlineCenterInParent = false;
+    private boolean headlineAlignParentRight;
+    private boolean headlineAlignParentLeft;
+    private boolean headlineCenterInParent;
 
     // Menu icon alignment
-    private boolean menuIconAlignParentRight = false;
-    private boolean menuIconAlignParentLeft = false;
-    private boolean menuIconCenterVertical = false;
+    private boolean menuIconAlignParentRight;
+    private boolean menuIconAlignParentLeft;
+    private boolean menuIconCenterVertical;
 
     public interface MenuClickHandler {
         void onMenuOptionClick(MenuItem item);
@@ -77,6 +74,10 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         initViews(context, attrs);
     }
 
+    private int getDimensionResource(int res) {
+        return getResources().getDimensionPixelSize(res);
+    }
+
     private void initViews(final Context context, AttributeSet attrs) {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.HeadlineCardView, 0, 0);
 
@@ -86,10 +87,12 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             headlineTextSize = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_textSize, DEFAULT_HEADLINE_TEXT_SIZE);
             cardMenuEnabled = a.getBoolean(R.styleable.HeadlineCardView_menu_enabled, false);
             menuItemsResource = a.getResourceId(R.styleable.HeadlineCardView_menu_options, R.menu.default_options);
-            cardElevation = a.getDimensionPixelSize(R.styleable.HeadlineCardView_card_elevation, DEFAULT_CARD_ELEVATION);
+            cardElevation = a.getDimensionPixelSize(R.styleable.HeadlineCardView_card_elevation,
+                                                    getDimensionResource(R.dimen.default_card_elevation));
 
             // Assign the generic padding value to allPadding if provided
-            headlinePadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_padding, DEFAULT_HEADLINE_PADDING);
+            headlinePadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_padding,
+                                                    getDimensionResource(R.dimen.default_headline_padding));
             // Use the new headlinePadding or the default headlinePadding value to set the other padding
             headlinePaddingRight = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_paddingRight, headlinePadding);
             headlinePaddingLeft = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_paddingLeft, headlinePadding);
@@ -101,7 +104,8 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             headlineCenterInParent = a.getBoolean(R.styleable.HeadlineCardView_headline_align_centerInParent, false);
 
             // Assign the generic padding value to allPadding if provided
-            menuIconPadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_padding, DEFAULT_MENU_ICON_PADDING);
+            menuIconPadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_padding,
+                                                    getDimensionResource(R.dimen.default_menuicon_padding));
             // Use the new menuIconPadding or the default menuIconPadding value to set the other padding
             menuIconPaddingRight = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_paddingRight, menuIconPadding);
             menuIconPaddingLeft = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_paddingLeft, menuIconPadding);
