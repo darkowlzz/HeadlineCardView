@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HeadlineCardView Library</string>
+    <string name="headlineTextValue">Headline Text</string>
 </resources>

@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Headline Text"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_padding="10dp"
         headlinecard:headline_style="@android:style/TextAppearance.Large"
         headlinecard:headline_align_centerInParent="true"
-        headlinecard:background_color="#44B449"
-        headlinecard:card_elevation="10dp"
+        headlinecard:background_color="@color/color_card1"
+        headlinecard:card_elevation="@dimen/card_elevation1"
         headlinecard:menu_enabled="true"
         headlinecard:menu_options="@menu/headline_menu_options"
         headlinecard:menuicon_padding="5dp"
@@ -37,12 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Headline Text"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_padding="20dp"
         headlinecard:headline_style="@android:style/TextAppearance.Medium"
         headlinecard:headline_align_parentLeft="true"
-        headlinecard:background_color="#F58020"
-        headlinecard:card_elevation="20dp"
+        headlinecard:background_color="@color/color_card2"
+        headlinecard:card_elevation="@dimen/card_elevation2"
         headlinecard:menu_enabled="true"
         headlinecard:menu_options="@menu/headline_menu_options"
         headlinecard:menuicon_padding="5dp"
@@ -52,30 +52,33 @@
         android:foreground="?android:attr/selectableItemBackground"/>
 
     <space.darkowlzz.headlinecardview.HeadlineCardView
+        android:id="@+id/headlineCard3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Hello World :D"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_align_parentRight="true"/>
 
     <space.darkowlzz.headlinecardview.HeadlineCardView
+        android:id="@+id/headlineCard4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Huge padding. Cuz YOLO!"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_paddingTop="30dp"
         headlinecard:background_color="#009AFD"
         headlinecard:menu_enabled="true"
         headlinecard:menuicon_align_parentRight="true"/>
 
     <space.darkowlzz.headlinecardview.HeadlineCardView
+        android:id="@+id/headlineCard5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Menu icon vertically centered"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_textColor="#FFFFFF"
         headlinecard:headline_paddingTop="30dp"
         headlinecard:background_color="#009AFD"
@@ -84,11 +87,12 @@
         headlinecard:menuicon_align_centerVertical="true"/>
 
     <space.darkowlzz.headlinecardview.HeadlineCardView
+        android:id="@+id/headlineCard6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
-        headlinecard:headline_text="Fooooo"
+        headlinecard:headline_text="@string/headlineTextValue"
         headlinecard:headline_textSize="20dp"
         headlinecard:headline_textColor="#3DFCED"
         headlinecard:headline_align_centerInParent="true"
