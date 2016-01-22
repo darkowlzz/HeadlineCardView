@@ -55,6 +55,117 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     private boolean menuIconAlignParentLeft;
     private boolean menuIconCenterVertical;
 
+
+    /** Getters **/
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    @Override
+    public float getCardElevation() {
+        return cardElevation;
+    }
+
+    public Boolean getCardMenuEnabled() {
+        return cardMenuEnabled;
+    }
+
+    public ImageView getCardMenuIcon() {
+        return cardMenuIcon;
+    }
+
+    public int getHeadlineColor() {
+        return headlineColor;
+    }
+
+    public int getHeadlineStyle() {
+        return headlineStyle;
+    }
+
+    public String getHeadlineText() {
+        return headlineText;
+    }
+
+    public float getHeadlineTextSize() {
+        return headlineTextSize;
+    }
+
+    public TextView getHeadlineTextView() {
+        return headlineTextView;
+    }
+
+    public int getMenuItemsResource() {
+        return menuItemsResource;
+    }
+
+    public boolean isHeadlineAlignParentLeft() {
+        return headlineAlignParentLeft;
+    }
+
+    public boolean isHeadlineAlignParentRight() {
+        return headlineAlignParentRight;
+    }
+
+    public boolean isHeadlineCenterInParent() {
+        return headlineCenterInParent;
+    }
+
+    public int getHeadlinePadding() {
+        return headlinePadding;
+    }
+
+    public int getHeadlinePaddingBottom() {
+        return headlinePaddingBottom;
+    }
+
+    public int getHeadlinePaddingLeft() {
+        return headlinePaddingLeft;
+    }
+
+    public int getHeadlinePaddingRight() {
+        return headlinePaddingRight;
+    }
+
+    public int getHeadlinePaddingTop() {
+        return headlinePaddingTop;
+    }
+
+    public boolean isMenuIconAlignParentLeft() {
+        return menuIconAlignParentLeft;
+    }
+
+    public boolean isMenuIconAlignParentRight() {
+        return menuIconAlignParentRight;
+    }
+
+    public boolean isMenuIconCenterVertical() {
+        return menuIconCenterVertical;
+    }
+
+    public int getMenuIconPadding() {
+        return menuIconPadding;
+    }
+
+    public int getMenuIconPaddingBottom() {
+        return menuIconPaddingBottom;
+    }
+
+    public int getMenuIconPaddingLeft() {
+        return menuIconPaddingLeft;
+    }
+
+    public int getMenuIconPaddingRight() {
+        return menuIconPaddingRight;
+    }
+
+    public int getMenuIconPaddingTop() {
+        return menuIconPaddingTop;
+    }
+
+
+    /** Constructors **/
+
     public interface MenuClickHandler {
         void onMenuOptionClick(MenuItem item);
     }
@@ -74,9 +185,22 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         initViews(context, attrs);
     }
 
+
+    /** Helper methods **/
+
     private int getDimensionResource(int res) {
         return getResources().getDimensionPixelSize(res);
     }
+
+    private int getColorResource(int res) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return getResources().getColor(res, getContext().getTheme());
+        } else {
+            return getResources().getColor(res);
+        }
+    }
+
+    /** View initializer **/
 
     private void initViews(final Context context, AttributeSet attrs) {
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.HeadlineCardView, 0, 0);
@@ -116,17 +240,8 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             menuIconAlignParentLeft = a.getBoolean(R.styleable.HeadlineCardView_menuicon_align_parentLeft, false);
             menuIconCenterVertical = a.getBoolean(R.styleable.HeadlineCardView_menuicon_align_centerVertical, false);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                backgroundColor = a.getColor(R.styleable.HeadlineCardView_background_color, getResources()
-                        .getColor(R.color.defaultBackground, getContext().getTheme()));
-                headlineColor = a.getColor(R.styleable.HeadlineCardView_headline_textColor, getResources()
-                        .getColor(R.color.defaultHeadlineText, getContext().getTheme()));
-            } else {
-                backgroundColor = a.getColor(R.styleable.HeadlineCardView_background_color, getResources()
-                        .getColor(R.color.defaultBackground));
-                headlineColor = a.getColor(R.styleable.HeadlineCardView_headline_textColor, getResources()
-                        .getColor(R.color.defaultHeadlineText));
-            }
+            backgroundColor = a.getColor(R.styleable.HeadlineCardView_background_color, getColorResource(R.color.defaultBackground));
+            headlineColor = a.getColor(R.styleable.HeadlineCardView_headline_textColor, getColorResource(R.color.defaultHeadlineText));
         } finally {
             a.recycle();
         }
