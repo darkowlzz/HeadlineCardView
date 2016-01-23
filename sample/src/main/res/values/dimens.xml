@@ -10,4 +10,7 @@
     <dimen name="headline_padding_default">10dp</dimen>
     <dimen name="headline_padding2">20dp</dimen>
     <dimen name="headline_padding_top4">30dp</dimen>
+
+    <dimen name="menuicon_padding_default">0dp</dimen>
+    <dimen name="menuicon_padding1">5dp</dimen>
 </resources>
