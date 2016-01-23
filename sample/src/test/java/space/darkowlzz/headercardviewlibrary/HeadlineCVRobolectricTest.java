@@ -99,6 +99,9 @@ public class HeadlineCVRobolectricTest {
         assertThat(hcv6.getHeadlineTextSize(), is((float)getDimensionResource(R.dimen.headline_textSize6)));
     }
 
+
+    // Headline Alignment
+
     @Test
     public void checkHeadlineAlignParentLeft() {
         assertThat(hcv1.isHeadlineAlignParentLeft(), is(false));
@@ -128,6 +131,9 @@ public class HeadlineCVRobolectricTest {
         assertThat(hcv5.isHeadlineCenterInParent(), is(false));
         assertThat(hcv6.isHeadlineCenterInParent(), is(true));
     }
+
+
+    // Headline Padding
 
     @Test
     public void checkHeadlinePadding() {
@@ -177,5 +183,104 @@ public class HeadlineCVRobolectricTest {
         assertThat(hcv4.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
         assertThat(hcv5.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
         assertThat(hcv6.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
+
+
+    // Menu Icon Alignment
+
+    @Test
+    public void checkMenuIconAlignParentLeft() {
+        assertThat(hcv1.isMenuIconAlignParentLeft(), is(false));
+        assertThat(hcv2.isMenuIconAlignParentLeft(), is(false));
+        assertThat(hcv3.isMenuIconAlignParentLeft(), is(false));
+        assertThat(hcv4.isMenuIconAlignParentLeft(), is(false));
+        assertThat(hcv5.isMenuIconAlignParentLeft(), is(false));
+        assertThat(hcv6.isMenuIconAlignParentLeft(), is(true));
+    }
+
+    @Test
+    public void checkMenuIconAlignParentRight() {
+        assertThat(hcv1.isMenuIconAlignParentRight(), is(true));
+        assertThat(hcv2.isMenuIconAlignParentRight(), is(true));
+        assertThat(hcv3.isMenuIconAlignParentRight(), is(false));
+        assertThat(hcv4.isMenuIconAlignParentRight(), is(true));
+        assertThat(hcv5.isMenuIconAlignParentRight(), is(true));
+        assertThat(hcv6.isMenuIconAlignParentRight(), is(false));
+    }
+
+    @Test
+    public void checkMenuIconCenterVertical() {
+        assertThat(hcv1.isMenuIconCenterVertical(), is(true));
+        assertThat(hcv2.isMenuIconCenterVertical(), is(true));
+        assertThat(hcv3.isMenuIconCenterVertical(), is(false));
+        assertThat(hcv4.isMenuIconCenterVertical(), is(false));
+        assertThat(hcv5.isMenuIconCenterVertical(), is(true));
+        assertThat(hcv6.isMenuIconCenterVertical(), is(false));
+    }
+
+
+    // Menu Icon Padding
+
+    @Test
+    public void checkMenuIconPadding() {
+        assertThat(hcv1.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv2.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv3.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv4.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv5.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv6.getMenuIconPadding(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+    }
+
+    @Test
+    public void checkMenuIconPaddingRight() {
+        assertThat(hcv1.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv2.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv3.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv4.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv5.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv6.getMenuIconPaddingRight(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+    }
+
+    @Test
+    public void checkMenuIconPaddingLeft() {
+        assertThat(hcv1.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv2.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv3.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv4.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv5.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv6.getMenuIconPaddingLeft(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+    }
+
+    @Test
+    public void checkMenuIconPaddingTop() {
+        assertThat(hcv1.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv2.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv3.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv4.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv5.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv6.getMenuIconPaddingTop(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+    }
+
+    @Test
+    public void checkMenuIconPaddingBottom() {
+        assertThat(hcv1.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv2.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding1)));
+        assertThat(hcv3.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv4.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv5.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+        assertThat(hcv6.getMenuIconPaddingBottom(), is(getDimensionResource(R.dimen.menuicon_padding_default)));
+    }
+
+
+    // Headline Style
+
+    @Test
+    public void checkHeadlineStyle() {
+        assertThat(hcv1.getHeadlineStyle(), is(android.R.style.TextAppearance_Large));
+        assertThat(hcv2.getHeadlineStyle(), is(android.R.style.TextAppearance_Medium));
+        assertThat(hcv3.getHeadlineStyle(), is(android.R.style.TextAppearance_Medium));
+        assertThat(hcv4.getHeadlineStyle(), is(android.R.style.TextAppearance_Medium));
+        assertThat(hcv5.getHeadlineStyle(), is(android.R.style.TextAppearance_Medium));
+        assertThat(hcv6.getHeadlineStyle(), is(android.R.style.TextAppearance_Medium));
     }
 }

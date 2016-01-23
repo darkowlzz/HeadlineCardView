@@ -71,10 +71,6 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         return cardMenuEnabled;
     }
 
-    public ImageView getCardMenuIcon() {
-        return cardMenuIcon;
-    }
-
     public int getHeadlineColor() {
         return headlineColor;
     }
@@ -89,10 +85,6 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
 
     public float getHeadlineTextSize() {
         return headlineTextSize;
-    }
-
-    public TextView getHeadlineTextView() {
-        return headlineTextView;
     }
 
     public int getMenuItemsResource() {
