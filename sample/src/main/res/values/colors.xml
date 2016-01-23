@@ -8,4 +8,7 @@
     <color name="color_card1">#44B449</color>
     <color name="color_card2">#F58020</color>
     <color name="color_card4">#009AFD</color>
+
+    <color name="color_headline5">#FFFFFF</color>
+    <color name="color_headline6">#3DFCED</color>
 </resources>
