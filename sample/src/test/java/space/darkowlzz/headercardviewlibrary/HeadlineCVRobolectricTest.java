@@ -88,4 +88,94 @@ public class HeadlineCVRobolectricTest {
         assertThat(hcv6.getCardMenuEnabled(), is(true));
     }
 
+    @Test
+    public void checkHeadlineTextColor() {
+        assertThat(hcv5.getHeadlineColor(), is(getColorResource(R.color.color_headline5)));
+        assertThat(hcv6.getHeadlineColor(), is(getColorResource(R.color.color_headline6)));
+    }
+
+    @Test
+    public void checkHeadlineTextSize() {
+        assertThat(hcv6.getHeadlineTextSize(), is((float)getDimensionResource(R.dimen.headline_textSize6)));
+    }
+
+    @Test
+    public void checkHeadlineAlignParentLeft() {
+        assertThat(hcv1.isHeadlineAlignParentLeft(), is(false));
+        assertThat(hcv2.isHeadlineAlignParentLeft(), is(true));
+        assertThat(hcv3.isHeadlineAlignParentLeft(), is(false));
+        assertThat(hcv4.isHeadlineAlignParentLeft(), is(false));
+        assertThat(hcv5.isHeadlineAlignParentLeft(), is(false));
+        assertThat(hcv6.isHeadlineAlignParentLeft(), is(false));
+    }
+
+    @Test
+    public void checkHeadlineAlignParentRight() {
+        assertThat(hcv1.isHeadlineAlignParentRight(), is(false));
+        assertThat(hcv2.isHeadlineAlignParentRight(), is(false));
+        assertThat(hcv3.isHeadlineAlignParentRight(), is(true));
+        assertThat(hcv4.isHeadlineAlignParentRight(), is(false));
+        assertThat(hcv5.isHeadlineAlignParentRight(), is(false));
+        assertThat(hcv6.isHeadlineAlignParentRight(), is(false));
+    }
+
+    @Test
+    public void checkHeadlineCenterInParent() {
+        assertThat(hcv1.isHeadlineCenterInParent(), is(true));
+        assertThat(hcv2.isHeadlineCenterInParent(), is(false));
+        assertThat(hcv3.isHeadlineCenterInParent(), is(false));
+        assertThat(hcv4.isHeadlineCenterInParent(), is(false));
+        assertThat(hcv5.isHeadlineCenterInParent(), is(false));
+        assertThat(hcv6.isHeadlineCenterInParent(), is(true));
+    }
+
+    @Test
+    public void checkHeadlinePadding() {
+        assertThat(hcv1.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv2.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding2)));
+        assertThat(hcv3.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv4.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv5.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv6.getHeadlinePadding(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
+
+    @Test
+    public void checkHeadlinePaddingRight() {
+        assertThat(hcv1.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv2.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding2)));
+        assertThat(hcv3.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv4.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv5.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv6.getHeadlinePaddingRight(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
+
+    @Test
+    public void checkHeadlinePaddingLeft() {
+        assertThat(hcv1.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv2.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding2)));
+        assertThat(hcv3.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv4.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv5.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv6.getHeadlinePaddingLeft(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
+
+    @Test
+    public void checkHeadlinePaddingTop() {
+        assertThat(hcv1.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv2.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding2)));
+        assertThat(hcv3.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv4.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding_top4)));
+        assertThat(hcv5.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding_top4)));
+        assertThat(hcv6.getHeadlinePaddingTop(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
+
+    @Test
+    public void checkHeadlinePaddingBottom() {
+        assertThat(hcv1.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv2.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding2)));
+        assertThat(hcv3.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv4.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv5.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+        assertThat(hcv6.getHeadlinePaddingBottom(), is(getDimensionResource(R.dimen.headline_padding_default)));
+    }
 }

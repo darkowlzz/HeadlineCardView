@@ -5,4 +5,9 @@
     <dimen name="card_elevation_default">5dp</dimen>
     <dimen name="card_elevation1">10dp</dimen>
     <dimen name="card_elevation2">20dp</dimen>
+
+    <dimen name="headline_textSize6">20dp</dimen>
+    <dimen name="headline_padding_default">10dp</dimen>
+    <dimen name="headline_padding2">20dp</dimen>
+    <dimen name="headline_padding_top4">30dp</dimen>
 </resources>
