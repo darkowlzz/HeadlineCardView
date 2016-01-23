@@ -13,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-/**
- * Created by sunny on 16/01/16.
- */
 public class HeadlineCardView extends android.support.v7.widget.CardView {
 
     private final int DEFAULT_HEADLINE_TEXT_SIZE = 0;
@@ -178,6 +175,28 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     }
 
 
+    /** View initializer **/
+
+    private void initViews(final Context context, AttributeSet attrs) {
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.HeadlineCardView, 0, 0);
+        readStyledAttributes(a);
+
+        // Inflate layout of the whole view
+        LayoutInflater.from(context).inflate(R.layout.headlinecard_layout, this);
+
+        headlineTextView = (TextView) this.findViewById(R.id.headline);
+        cardMenuIcon = (ImageView) this.findViewById(R.id.optionsMenu);
+
+        setupHeadline();
+        setupMenuIcon();
+
+        // Set headline cardview background
+        setCardBackgroundColor(backgroundColor);
+        // Set headline cardview elevation
+        setCardElevation(cardElevation);
+    }
+
+
     /** Helper methods **/
 
     private int getDimensionResource(int res) {
@@ -192,11 +211,7 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         }
     }
 
-    /** View initializer **/
-
-    private void initViews(final Context context, AttributeSet attrs) {
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.HeadlineCardView, 0, 0);
-
+    private void readStyledAttributes(TypedArray a) {
         try {
             headlineText = a.getString(R.styleable.HeadlineCardView_headline_text);
             headlineStyle = a.getResourceId(R.styleable.HeadlineCardView_headline_style, android.R.style.TextAppearance_Medium);
@@ -204,11 +219,11 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             cardMenuEnabled = a.getBoolean(R.styleable.HeadlineCardView_menu_enabled, false);
             menuItemsResource = a.getResourceId(R.styleable.HeadlineCardView_menu_options, R.menu.default_options);
             cardElevation = a.getDimensionPixelSize(R.styleable.HeadlineCardView_card_elevation,
-                                                    getDimensionResource(R.dimen.default_card_elevation));
+                    getDimensionResource(R.dimen.default_card_elevation));
 
             // Assign the generic padding value to allPadding if provided
             headlinePadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_padding,
-                                                    getDimensionResource(R.dimen.default_headline_padding));
+                    getDimensionResource(R.dimen.default_headline_padding));
             // Use the new headlinePadding or the default headlinePadding value to set the other padding
             headlinePaddingRight = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_paddingRight, headlinePadding);
             headlinePaddingLeft = a.getDimensionPixelSize(R.styleable.HeadlineCardView_headline_paddingLeft, headlinePadding);
@@ -221,7 +236,7 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
 
             // Assign the generic padding value to allPadding if provided
             menuIconPadding = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_padding,
-                                                    getDimensionResource(R.dimen.default_menuicon_padding));
+                    getDimensionResource(R.dimen.default_menuicon_padding));
             // Use the new menuIconPadding or the default menuIconPadding value to set the other padding
             menuIconPaddingRight = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_paddingRight, menuIconPadding);
             menuIconPaddingLeft = a.getDimensionPixelSize(R.styleable.HeadlineCardView_menuicon_paddingLeft, menuIconPadding);
@@ -237,20 +252,16 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         } finally {
             a.recycle();
         }
+    }
 
-        // Inflate layout of the whole view
-        LayoutInflater.from(context).inflate(R.layout.headlinecard_layout, this);
-
-        headlineTextView = (TextView) this.findViewById(R.id.headline);
-        cardMenuIcon = (ImageView) this.findViewById(R.id.optionsMenu);
-
+    private void setupHeadline() {
         // Set headline text content
         headlineTextView.setText(headlineText);
         // Set textAppearance of headline
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             headlineTextView.setTextAppearance(headlineStyle);
         } else {
-            headlineTextView.setTextAppearance(context, headlineStyle);
+            headlineTextView.setTextAppearance(getContext(), headlineStyle);
         }
         // Set headline text color
         headlineTextView.setTextColor(headlineColor);
@@ -262,15 +273,6 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
 
         // Set headline padding
         headlineTextView.setPadding(headlinePaddingLeft, headlinePaddingTop, headlinePaddingRight, headlinePaddingBottom);
-        // Set menu icon padding
-        cardMenuIcon.setPadding(menuIconPaddingLeft, menuIconPaddingTop, menuIconPaddingRight, menuIconPaddingBottom);
-
-        // Set headline cardview background
-        setCardBackgroundColor(backgroundColor);
-        // Set headline cardview elevation
-        setCardElevation(cardElevation);
-        // Set menu visibility
-        cardMenuIcon.setVisibility(cardMenuEnabled ? VISIBLE : INVISIBLE);
 
         // Get headline textview layout params
         RelativeLayout.LayoutParams headlineLayoutParams = (RelativeLayout.LayoutParams)headlineTextView.getLayoutParams();
@@ -284,6 +286,14 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         if (headlineCenterInParent) {
             headlineLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         }
+    }
+
+    private void setupMenuIcon() {
+        // Set menu icon padding
+        cardMenuIcon.setPadding(menuIconPaddingLeft, menuIconPaddingTop, menuIconPaddingRight, menuIconPaddingBottom);
+
+        // Set menu visibility
+        cardMenuIcon.setVisibility(cardMenuEnabled ? VISIBLE : INVISIBLE);
 
         // Get menu icon layout params
         RelativeLayout.LayoutParams menuLayoutParams = (RelativeLayout.LayoutParams)cardMenuIcon.getLayoutParams();
@@ -305,7 +315,7 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
             cardMenuIcon.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    PopupMenu popup = new PopupMenu(context, v);
+                    PopupMenu popup = new PopupMenu(getContext(), v);
                     MenuInflater inflater = popup.getMenuInflater();
                     inflater.inflate(menuItemsResource, popup.getMenu());
                     popup.show();
