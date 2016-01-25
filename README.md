@@ -77,7 +77,7 @@ Learn more about the available attribuetes from [here](https://github.com/darkow
 
 ## Gradle
 
-Add to build.gradle depencencies
+Add to build.gradle dependencies
 
 ```groovy
 dependencies {
