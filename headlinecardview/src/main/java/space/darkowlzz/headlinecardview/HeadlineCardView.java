@@ -265,15 +265,12 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         }
         // Set headline text color
         headlineTextView.setTextColor(headlineColor);
-
         // set textSize only when it's other than the default value of DEFAULT_HEADLINE_TEXT_SIZE i.e. 0
         if (headlineTextSize != DEFAULT_HEADLINE_TEXT_SIZE) {
             headlineTextView.setTextSize(headlineTextSize);
         }
-
         // Set headline padding
         headlineTextView.setPadding(headlinePaddingLeft, headlinePaddingTop, headlinePaddingRight, headlinePaddingBottom);
-
         // Get headline textview layout params
         RelativeLayout.LayoutParams headlineLayoutParams = (RelativeLayout.LayoutParams)headlineTextView.getLayoutParams();
         // Set headline layout params
@@ -291,10 +288,8 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
     private void setupMenuIcon() {
         // Set menu icon padding
         cardMenuIcon.setPadding(menuIconPaddingLeft, menuIconPaddingTop, menuIconPaddingRight, menuIconPaddingBottom);
-
         // Set menu visibility
         cardMenuIcon.setVisibility(cardMenuEnabled ? VISIBLE : INVISIBLE);
-
         // Get menu icon layout params
         RelativeLayout.LayoutParams menuLayoutParams = (RelativeLayout.LayoutParams)cardMenuIcon.getLayoutParams();
         // Set menu icon layout params
@@ -309,7 +304,6 @@ public class HeadlineCardView extends android.support.v7.widget.CardView {
         if (menuIconCenterVertical) {
             menuLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
         }
-
         // if menu is enabled, set default menu onclick listener
         if (cardMenuEnabled) {
             cardMenuIcon.setOnClickListener(new OnClickListener() {
